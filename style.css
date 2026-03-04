@@ -1,0 +1,152 @@
+body{
+margin:0;
+font-family:Segoe UI;
+background:#f1f5f9;
+}
+
+/* 🔥 NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:linear-gradient(45deg,#1e3a8a,#2563eb);
+color:white;
+padding:15px 30px;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+.menu{
+list-style:none;
+display:flex;
+gap:20px;
+}
+.menu li a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.menu li a:hover{
+text-decoration:underline;
+}
+
+.menu li{
+cursor:pointer;
+}
+
+.navbar input{
+padding:8px;
+border-radius:5px;
+border:none;
+}
+
+/* 🔥 HERO */
+.hero{
+text-align:center;
+background:#0f172a;
+color:white;
+padding:40px 20px;
+}
+
+/* FILTER BUTTONS */
+.filters{
+text-align:center;
+margin:20px;
+}
+
+.filters button{
+padding:10px 15px;
+margin:5px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* JOB CARDS */
+.job-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.job{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.job:hover{
+transform:translateY(-8px);
+}
+
+/* 🔥 BUTTONS */
+.buttons{
+display:flex;
+gap:8px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.apply{
+background:#16a34a;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.notify{
+background:#2563eb;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.admit{
+background:#7c3aed;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}
+.about-website {
+  background: #f9f9f9;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+}
+
+.about-website h2 {
+  color: #1a237e;
+  margin-bottom: 15px;
+}
+
+.about-website p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
