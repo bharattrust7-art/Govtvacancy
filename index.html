@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Govt.jobs — Latest Jobs</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- 🔥 ATTRACTIVE NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Govt.Vacancy</div>
+
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="admitcard.html">Admit Card</a></li>
+    <li><a href="result.html">Result</a></li>
+    
+  </ul>
+
+  <input type="text" id="search" placeholder="Search jobs...">
+</nav>
+
+<!-- 🔥 HERO SECTION -->
+<section class="hero">
+  <h1>Latest Government Jobs for 10th & 12th Pass</h1>
+  <p>Apply Online • Download Admit Card • View Notifications</p>
+</section>
+
+<!-- CATEGORY FILTER -->
+<div class="filters">
+<button onclick="filterJobs('All')">All</button>
+<button onclick="filterJobs('10th Pass')">10th Pass</button>
+<button onclick="filterJobs('12th Pass')">12th Pass</button>
+<button onclick="filterJobs('Graduate')">Graduate</button>
+</div>
+
+<!-- JOB LIST -->
+<div id="jobs" class="job-container"></div>
+
+<footer>
+<p>© 2026 10+2 Vacancy | All Rights Reserved</p>
+</footer>
+
+<script>
+let allJobs=[];
+
+fetch('jobs/jobs.json')
+.then(res => res.json())
+.then(data => {
+    allJobs=data;
+    displayJobs(data);
+});
+
+function displayJobs(data){
+    let html="";
+
+    // Sort by latest apply date
+    data.sort((a, b) => {
+        return new Date(b.apply_date.split("-").reverse().join("-")) -
+               new Date(a.apply_date.split("-").reverse().join("-"));
+    });
+
+    data.forEach(job=>{
+        html += `
+        <div class="job">
+          <h2>${job.title}</h2>
+          <p>${job.category}</p>
+          <p>Vacancy: ${job.vacancy}</p>
+          <p>Last Date: ${job.apply_date}</p>
+
+          <div class="buttons">
+            <a href="${job.apply_link}" target="_blank">
+              <button class="apply">Apply Now</button>
+            </a>
+          </div>
+        </div>`;
+    });
+
+    document.getElementById("jobs").innerHTML = html;
+}
+
+
+function filterJobs(category){
+    if(category=="All") displayJobs(allJobs);
+    else displayJobs(allJobs.filter(j=>j.category==category));
+}
+
+document.getElementById("search").addEventListener("keyup", function(){
+    let text=this.value.toLowerCase();
+    displayJobs(allJobs.filter(j=>j.title.toLowerCase().includes(text)));
+});
+</script>
+<section class="about-website">
+  <h2>Welcome to Govt Jobs</h2>
+  <p>
+    <strong>Govt Jobs</strong> is a dedicated platform created to help students and job seekers find the latest government job opportunities after 10th and 12th pass in one trusted place. We understand how difficult it is to search multiple websites every day, so our goal is to save your time by providing accurate and verified job updates from official sources.
+  </p>
+
+  <p>
+    On this website, you will find daily updates on defence jobs, railway recruitment, police vacancies, apprenticeships, and other central and state government jobs. Along with job notifications, we also provide direct apply links, important dates, admit card updates, and result information — all presented in a simple and easy-to-understand format.
+  </p>
+
+  <p>
+    Whether you are preparing for your first government exam or waiting for the right opportunity, <strong>Govt Jobs</strong> is designed to support your journey. We update content regularly so you never miss an important deadline. Bookmark this website and visit daily to stay ahead in your preparation and move one step closer to a secure government career.
+  </p>
+</section>
+
+</body>
+</html>
