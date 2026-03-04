@@ -47,7 +47,7 @@
 <script>
 let allJobs=[];
 
-fetch('jobs/jobs.json')
+fetch('./jobs/jobs.json')
 .then(res => res.json())
 .then(data => {
     allJobs=data;
@@ -109,4 +109,5 @@ document.getElementById("search").addEventListener("keyup", function(){
 </section>
 
 </body>
+
 </html>
